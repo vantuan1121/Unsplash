@@ -1,6 +1,8 @@
 <template>
   <nav>
     <router-link to="/"></router-link>
+    <router-link to="/SignUp"></router-link>
+    <router-link to="/LoginPages"></router-link>
     <router-link to="/UseGetUnsplash"></router-link>
     <router-link to="/PhotosView"></router-link>
     <router-link to="/IllustrationsView"></router-link>

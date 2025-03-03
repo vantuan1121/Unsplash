@@ -6,10 +6,11 @@ import Spring from '@/assets/img/imgmenu/Photo/Spring.avif';
 import Yellow from '@/assets/img/imgmenu/Photo/Yellow.avif';
 import Textures from '@/assets/img/imgmenu/Photo/Textures.avif';
 import SvgIcon from '@/components/SvgIcon.vue';
+import UnsplashAPI from '@/components/UnsplashAPI.vue';
 </script>
 
 <template>
-  <HeaderBar/>
+  <HeaderBar />
   <MenuPages />
   <!-- ========= -->
   <div class="flex justify-center gap-7">
@@ -98,5 +99,8 @@ import SvgIcon from '@/components/SvgIcon.vue';
         </a>
       </div>
     </div>
+  </div>
+  <div class="mt-[50px]">
+    <UnsplashAPI />
   </div>
 </template>

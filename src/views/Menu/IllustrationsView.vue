@@ -6,6 +6,7 @@ import AbstractFlorals from '@/assets/img/imgmenu/Illustrations/AbstractFlorals.
 import ColorMeIn from '@/assets/img/imgmenu/Illustrations/ColorMeIn.avif';
 import EcommerceIconsByRoundIcons from '@/assets/img/imgmenu/Illustrations/EcommerceIconsByRoundIcons.avif';
 import WorkinProgress from '@/assets/img/imgmenu/Illustrations/WorkinProgress.avif';
+
 </script>
 
 <template>
@@ -95,4 +96,8 @@ import WorkinProgress from '@/assets/img/imgmenu/Illustrations/WorkinProgress.av
       </div>
     </div>
   </div>
+
+  <!-- Hiển thị ảnh -->
+
 </template>
+

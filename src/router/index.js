@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import LoginPages from '@/components/LoginPages.vue'
+import SignUp from '@/components/SignUp.vue'
 import IndexPages from '@/pages/IndexPages.vue'
 import GetUnsplash from '@/views/GetUnsplash.vue'
 import PhotosView from '@/views/Menu/PhotosView.vue'
@@ -30,6 +32,16 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: IndexPages,
+    },
+    {
+      path: '/LoginPages',
+      name: 'LoginPages',
+      component: LoginPages,
+    },
+    {
+      path: '/SignUp',
+      name: 'SignUp',
+      component: SignUp,
     },
     {
       path: '/UnsplashAPI',

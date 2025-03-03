@@ -37,7 +37,7 @@ onUnmounted(() => {
 <template>
   <div class="sticky z-50 top-0 pt-4 bg-white ">
     <!--  -->
-    <div class="flex">
+    <div class="flex ml-[10px]">
       <!--  -->
       <div class="h-5 w-10">
         <img :src="logo" alt="Logo">
