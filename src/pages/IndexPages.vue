@@ -1,5 +1,4 @@
 <script setup>
-import MenuPages from './MenuPages.vue';
 import HeaderBar from '@/components/HeaderBar.vue';
 import Menu from '@/assets/img/menu.jpg';
 import Candlelit from '@/assets/img/imgmenu/Photo/Candlelit.avif';
@@ -7,12 +6,12 @@ import Spring from '@/assets/img/imgmenu/Photo/Spring.avif';
 import Yellow from '@/assets/img/imgmenu/Photo/Yellow.avif';
 import Textures from '@/assets/img/imgmenu/Photo/Textures.avif';
 import SvgIcon from '@/components/SvgIcon.vue';
+import UnsplashAPI from '@/components/UnsplashAPI.vue';
 </script>
 
 <template>
-    <HeaderBar/>
-    <MenuPages />
-    <div class="flex justify-center gap-7">
+  <HeaderBar />
+  <div class="flex justify-center gap-7">
     <div class="flex font-bold border-1 border-[#C0C0C0] rounded-md mt-[50px] h-[263px] w-[580px]">
       <div class="ml-[20px]">
         <router-link to="/GetUnsplash" class="mt-[70px] block text-left">
@@ -98,5 +97,10 @@ import SvgIcon from '@/components/SvgIcon.vue';
         </a>
       </div>
     </div>
+  </div>
+
+  <!-- API -->
+  <div class="mt-[50px]">
+    <UnsplashAPI />
   </div>
 </template>

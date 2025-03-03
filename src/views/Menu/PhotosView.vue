@@ -1,5 +1,4 @@
 <script setup>
-import MenuPages from '@/pages/MenuPages.vue';
 import HeaderBar from '@/components/HeaderBar.vue';
 import Menu from '@/assets/img/menu.jpg';
 import Candlelit from '@/assets/img/imgmenu/Photo/Candlelit.avif';
@@ -33,7 +32,7 @@ import SvgIcon from '@/components/SvgIcon.vue';
       </div>
     </div>
     <!-- ========== -->
-    <div class="border-1 border-[#C0C0C0] rounded-md h-[263px] w-[300px] mt-[50px]">
+    <div class="border-1 border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px]">
       <div class="flex justify-center gap-30 mt-[10px]">
         <p class="font-bold">
           Collections
@@ -89,7 +88,7 @@ import SvgIcon from '@/components/SvgIcon.vue';
         <!--  -->
       </div>
     </div>
-    <div class="border-1 border-[#C0C0C0] rounded-md h-[263px] w-[300px] mt-[50px]">
+    <div class="border-1 border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px]">
       <div class="flex mt-[220px] ml-[15px]">
         <SvgIcon name="muitenlen" class="h-5 w-10" />
         <a href="https://unsplash.com/trends" target="_blank" class="block">

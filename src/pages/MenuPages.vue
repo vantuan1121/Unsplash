@@ -12,7 +12,7 @@ const scrollMenu = (offset) => {
 </script>
 
 <template>
-  <div class="flex justify-center ">
+  <div class="flex justify-center border-b-2 border-[#c1baba] p-8">
     <ul class="flex gap-5 items-center font-medium ">
       <li>
         <router-link to="/PhotosView" class="text-gray-500 hover:text-black">Photos</router-link>
@@ -34,10 +34,11 @@ const scrollMenu = (offset) => {
         class="w-[28cm] flex gap-5 whitespace-nowrap overflow-x-hidden scroll-smooth font-medium">
 
         <li>
-         <router-link to="/WallpapersView" class="text-gray-500 hover:text-black">Wallpapers</router-link>
-
-      </li>
-        <li class="text-gray-500 hover:text-black">Nature</li>
+          <router-link to="/WallpapersView" class="text-gray-500 hover:text-black">Wallpapers</router-link>
+        </li>
+        <li>
+          <router-link to="/NatureView" class="text-gray-500 hover:text-black">Nature</router-link>
+        </li>
         <li class="text-gray-500 hover:text-black">3D Renders</li>
         <li class="text-gray-500 hover:text-black">Textures</li>
         <li class="text-gray-500 hover:text-black">Architecture & Interiors</li>

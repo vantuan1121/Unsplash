@@ -1,6 +1,7 @@
 <script setup>
 import logo from '@/assets/img/logo.jpg';
 import SvgIcon from '@/components/SvgIcon.vue';
+import MenuPages from '@/pages/MenuPages.vue';
 // ===========
 import { ref, onMounted, onUnmounted } from "vue";
 
@@ -34,7 +35,7 @@ onUnmounted(() => {
 
 
 <template>
-  <div class="sticky z-50 top-0 p-4 bg-white ">
+  <div class="sticky z-50 top-0 pt-4 bg-white ">
     <!--  -->
     <div class="flex">
       <!--  -->
@@ -123,5 +124,8 @@ onUnmounted(() => {
         </button>
       </div>
     </div>
+
+    <!--  -->
+    <MenuPages/>
   </div>
 </template>
