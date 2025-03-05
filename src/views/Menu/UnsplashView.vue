@@ -1,5 +1,5 @@
 <script setup>
-import HeaderBar from '@/components/HeaderBar.vue';
+import MenuPages from '@/pages/MenuPages.vue';
 import Menu from '@/assets/img/menu.jpg';
 import SvgIcon from '@/components/SvgIcon.vue';
 import Candlelit from '@/assets/img/imgmenu/Unsplash/Candlelit.avif';
@@ -9,10 +9,10 @@ import SimpleWatchWallpapers from '@/assets/img/imgmenu/Unsplash/SimpleWatchWall
 </script>
 
 <template>
-  <HeaderBar />
+  <MenuPages />
   <!--  -->
   <div class="flex justify-center gap-7">
-    <div class="flex font-bold border-1 border-[#C0C0C0] rounded-md mt-[50px] h-[263px] w-[580px]">
+    <div class="flex font-bold border-1 border-[#C0C0C0] rounded-md mt-[50px] h-[280px] w-[580px]">
       <div class="ml-[20px]">
         <router-link to="/GetUnsplash" class="mt-[70px] block text-left">
           Unlock everything <br>
@@ -31,7 +31,7 @@ import SimpleWatchWallpapers from '@/assets/img/imgmenu/Unsplash/SimpleWatchWall
       </div>
     </div>
     <!-- ========== -->
-    <div class="border-1 border-[#C0C0C0] rounded-md h-[263px] w-[300px] mt-[50px]">
+    <div class="border-1 border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px]">
       <div class="flex justify-center gap-30 mt-[10px]">
         <p class="font-bold">Collections</p>
         <button class="underline text-gray-400 hover:text-black">
@@ -85,7 +85,7 @@ import SimpleWatchWallpapers from '@/assets/img/imgmenu/Unsplash/SimpleWatchWall
       </div>
     </div>
     <!--  -->
-    <div class="border-1 border-[#C0C0C0] rounded-md h-[263px] w-[300px] mt-[50px]">
+    <div class="border-1 border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px]">
       <div class="flex mt-[220px] ml-[15px]">
         <SvgIcon name="muitenlen" class="h-5 w-10" />
         <button class="underline text-black hover:text-gray-400">
@@ -99,25 +99,74 @@ import SimpleWatchWallpapers from '@/assets/img/imgmenu/Unsplash/SimpleWatchWall
   <div class="flex justify-center gap-6 p-4 mt-[50px]">
     <!-- Cột 1 -->
     <div class="flex flex-col space-y-4">
-      <a v-for="image in column1" :key="image.id" :href="image.links.html" target="_blank">
-        <img :src="image.urls.small" :alt="image.alt_description" class="rounded-lg shadow-md hover:opacity-80" />
-      </a>
+      <div v-for="image in column1" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <!-- Ảnh -->
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+
+            <!-- Nền đen mờ khi hover -->
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+
+          <!-- Thông tin tác giả -->
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+              <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
 
     <!-- Cột 2 -->
     <div class="flex flex-col space-y-4">
-      <a v-for="image in column2" :key="image.id" :href="image.links.html" target="_blank">
-        <img :src="image.urls.small" :alt="image.alt_description" class="rounded-lg shadow-md hover:opacity-80" />
-      </a>
+      <div v-for="image in column2" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+              <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
 
     <!-- Cột 3 -->
     <div class="flex flex-col space-y-4">
-      <a v-for="image in column3" :key="image.id" :href="image.links.html" target="_blank">
-        <img :src="image.urls.small" :alt="image.alt_description" class="rounded-lg shadow-md hover:opacity-80" />
-      </a>
+      <div v-for="image in column3" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+              <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
+
+  <!-- Trigger tải thêm ảnh -->
   <div ref="loadMoreTrigger" class="h-10"></div>
 </template>
 

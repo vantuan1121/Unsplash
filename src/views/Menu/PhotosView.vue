@@ -1,16 +1,24 @@
 <script setup>
-import HeaderBar from '@/components/HeaderBar.vue';
+import MenuPages from '@/pages/MenuPages.vue';
 import Menu from '@/assets/img/menu.jpg';
 import Candlelit from '@/assets/img/imgmenu/Photo/Candlelit.avif';
 import Spring from '@/assets/img/imgmenu/Photo/Spring.avif';
 import Yellow from '@/assets/img/imgmenu/Photo/Yellow.avif';
 import Textures from '@/assets/img/imgmenu/Photo/Textures.avif';
 import SvgIcon from '@/components/SvgIcon.vue';
-import UnsplashAPI from '@/components/UnsplashAPI.vue';
+// ==============
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["search"]); // Định nghĩa sự kiện gửi đi
+
+const keywords = ["Banana Tree", "Machu Picchu", "Brasilia", "Ukraine", "Disney", "Baptism"];
+
+const selectKeyword = (keyword) => {
+  emit("search", keyword); // Gửi sự kiện chứa từ khóa đến HeaderBar.vue
+};
 </script>
 
 <template>
-  <HeaderBar />
   <MenuPages />
   <!-- ========= -->
   <div class="flex justify-center gap-7">
@@ -89,18 +97,194 @@ import UnsplashAPI from '@/components/UnsplashAPI.vue';
         <!--  -->
       </div>
     </div>
-    <div class="border-1 border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px]">
-      <div class="flex mt-[220px] ml-[15px]">
-        <SvgIcon name="muitenlen" class="h-5 w-10" />
-        <a href="https://unsplash.com/trends" target="_blank" class="block">
-          <button class="underline text-black hover:text-gray-400">
-            See trending searches
-          </button>
+    <!-- See trending searches -->
+    <div class="border border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px] p-4">
+    <!-- Danh sách từ khóa -->
+    <div class="flex flex-wrap gap-2">
+      <button
+        v-for="keyword in keywords"
+        :key="keyword"
+        @click="selectKeyword(keyword)"
+        class="border border-gray-400 px-3 py-1 rounded-lg text-gray-700 hover:bg-gray-200 transition"
+      >
+        {{ keyword }}
+      </button>
+    </div>
+
+    <!-- Nút xem thêm trending -->
+    <div class="flex mt-[100px]">
+      <SvgIcon name="muitenlen" class="h-5 w-10" />
+      <a href="https://unsplash.com/trends" target="_blank" class="block">
+        <button class="underline text-black hover:text-gray-400">
+          See trending searches
+        </button>
+      </a>
+    </div>
+  </div>
+  </div>
+  <div class="mt-[50px]">
+  </div>
+
+  <!-- hiển thị ảnh -->
+  <div class="flex justify-center gap-6 p-4 mt-[50px]">
+    <!-- Cột 1 -->
+    <div class="flex flex-col space-y-4">
+      <div v-for="image in column1" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <!-- Ảnh -->
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+
+            <!-- Nền đen mờ khi hover -->
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+
+          <!-- Thông tin tác giả -->
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Cột 2 -->
+    <div class="flex flex-col space-y-4">
+      <div v-for="image in column2" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Cột 3 -->
+    <div class="flex flex-col space-y-4">
+      <div v-for="image in column3" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+            </div>
+          </div>
         </a>
       </div>
     </div>
   </div>
-  <div class="mt-[50px]">
-    <UnsplashAPI />
-  </div>
+
+  <!-- Trigger tải thêm ảnh -->
+  <div ref="loadMoreTrigger" class="h-10"></div>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      column1: [],
+      column2: [],
+      column3: [],
+      page: 1,
+      accessKey: import.meta.env.VITE_UNSPLASH_ACCESS_KEY,
+      observer: null,
+      loading: false,
+    };
+  },
+  methods: {
+    async fetchImages() {
+      if (this.loading || !this.accessKey) return;
+      this.loading = true;
+
+      try {
+        const response = await axios.get('https://api.unsplash.com/search/photos', {
+          params: {
+            query: 'Photo',
+            page: this.page,
+            per_page: 15,
+            client_id: this.accessKey
+          },
+        });
+
+        const newColumn1 = [];
+        const newColumn2 = [];
+        const newColumn3 = [];
+
+        response.data.results.forEach((image, index) => {
+          if (index % 3 === 0) newColumn1.push(image);
+          else if (index % 3 === 1) newColumn2.push(image);
+          else newColumn3.push(image);
+        });
+
+        this.column1 = [...this.column1, ...newColumn1];
+        this.column2 = [...this.column2, ...newColumn2];
+        this.column3 = [...this.column3, ...newColumn3];
+
+        this.page++;
+      } catch (error) {
+        if (error.response?.status === 403 || error.response?.status === 429) {
+          console.error("Quota exceeded! Try again later.");
+        } else {
+          console.error("Error fetching images:", error);
+        }
+      } finally {
+        this.loading = false;
+      }
+    },
+    setupObserver() {
+      if (this.observer) return;
+
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            this.fetchImages();
+          }
+        },
+        { rootMargin: '200px' }
+      );
+
+      this.$nextTick(() => {
+        const trigger = this.$refs.loadMoreTrigger;
+        if (trigger) {
+          this.observer.observe(trigger);
+        }
+      });
+    }
+  },
+  mounted() {
+    if (!this.accessKey) {
+      console.error("Unsplash API key is missing! Please set VITE_UNSPLASH_ACCESS_KEY in .env file.");
+      return;
+    }
+    this.fetchImages();
+    this.setupObserver();
+  },
+  beforeUnmount() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+};
+</script>
+

@@ -1,15 +1,16 @@
 <template>
+
+  <!--  -->
   <nav>
+    <router-link to="/ImageSearch"></router-link>
+    <!--  -->
     <router-link to="/"></router-link>
-    <router-link to="/SignUp"></router-link>
-    <router-link to="/LoginPages"></router-link>
     <router-link to="/UseGetUnsplash"></router-link>
+    <router-link to="/MenuPages"></router-link>
     <router-link to="/PhotosView"></router-link>
     <router-link to="/IllustrationsView"></router-link>
     <router-link to="/UnsplashView"></router-link>
     <router-link to="/WallpapersView"></router-link>
-    <!--  -->
-    <router-link to="/UnsplashAPI"></router-link>
     <!--  -->
     <router-link to="/NatureView"></router-link>
     <router-link to="/RendersView"></router-link>

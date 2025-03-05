@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginPages from '@/components/LoginPages.vue'
-import SignUp from '@/components/SignUp.vue'
+import MenuPages from '@/pages/MenuPages.vue'
 import IndexPages from '@/pages/IndexPages.vue'
 import GetUnsplash from '@/views/GetUnsplash.vue'
 import PhotosView from '@/views/Menu/PhotosView.vue'
@@ -22,36 +21,30 @@ import FashionView from '@/views/Menu/FashionView.vue'
 import FoodView from '@/views/Menu/FoodView.vue'
 import SportsView from '@/views/Menu/SportsView.vue'
 import HealthView from '@/views/Menu/HealthView.vue'
-
-import UnsplashAPI from '@/components/UnsplashAPI.vue'
-
+//
+import ImageSearch from "@/views/ImageSearch.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/ImageSearch',
+      name: 'ImageSearch',
+      component: ImageSearch,
+    },
     {
       path: '/',
       name: 'home',
       component: IndexPages,
     },
     {
-      path: '/LoginPages',
-      name: 'LoginPages',
-      component: LoginPages,
-    },
-    {
-      path: '/SignUp',
-      name: 'SignUp',
-      component: SignUp,
-    },
-    {
-      path: '/UnsplashAPI',
-      name: 'UnsplashAPI',
-      component: UnsplashAPI,
-    },
-    {
       path: '/GetUnsplash',
       name: 'GetUnsplash',
       component: GetUnsplash,
+    },
+    {
+      path: '/MenuPages',
+      name: 'MenuPages',
+      component: MenuPages,
     },
     {
       path: '/PhotosView',

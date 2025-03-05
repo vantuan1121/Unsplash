@@ -1,5 +1,5 @@
 <script setup>
-import HeaderBar from '@/components/HeaderBar.vue';
+import MenuPages from '@/pages/MenuPages.vue';
 import MarekPiwnicki from '@/assets/img/imgmenu/Nature/MarekPiwnicki.avif';
 import WolfgangHasselmann from '@/assets/img/imgmenu/Nature/WolfgangHasselmann.avif';
 import AnnieSpratt from '@/assets/img/imgmenu/Nature/AnnieSpratt.avif'
@@ -7,7 +7,7 @@ import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
 </script>
 
 <template>
-  <HeaderBar />
+  <MenuPages />
   <!--  -->
   <div class="flex justify-center gap-7">
     <!-- Cột bên trái -->
@@ -88,25 +88,74 @@ import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
   <div class="flex justify-center gap-6 p-4 mt-[50px]">
     <!-- Cột 1 -->
     <div class="flex flex-col space-y-4">
-      <a v-for="image in column1" :key="image.id" :href="image.links.html" target="_blank">
-        <img :src="image.urls.small" :alt="image.alt_description" class="rounded-lg shadow-md hover:opacity-80" />
-      </a>
+      <div v-for="image in column1" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <!-- Ảnh -->
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+
+            <!-- Nền đen mờ khi hover -->
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+
+          <!-- Thông tin tác giả -->
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+              <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
 
     <!-- Cột 2 -->
     <div class="flex flex-col space-y-4">
-      <a v-for="image in column2" :key="image.id" :href="image.links.html" target="_blank">
-        <img :src="image.urls.small" :alt="image.alt_description" class="rounded-lg shadow-md hover:opacity-80" />
-      </a>
+      <div v-for="image in column2" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+              <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
 
     <!-- Cột 3 -->
     <div class="flex flex-col space-y-4">
-      <a v-for="image in column3" :key="image.id" :href="image.links.html" target="_blank">
-        <img :src="image.urls.small" :alt="image.alt_description" class="rounded-lg shadow-md hover:opacity-80" />
-      </a>
+      <div v-for="image in column3" :key="image.id" class="relative group">
+        <a :href="image.links.html" target="_blank" class="block">
+          <div class="relative">
+            <img :src="image.urls.small" :alt="image.alt_description"
+              class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar"
+              class="w-8 h-8 rounded-full border border-white" />
+            <div>
+              <p class="text-sm font-semibold">{{ image.user.name }}</p>
+              <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
+
+  <!-- Trigger tải thêm ảnh -->
   <div ref="loadMoreTrigger" class="h-10"></div>
 </template>
 
