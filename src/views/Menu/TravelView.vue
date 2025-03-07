@@ -4,6 +4,8 @@ import MarekPiwnicki from '@/assets/img/imgmenu/Nature/MarekPiwnicki.avif';
 import WolfgangHasselmann from '@/assets/img/imgmenu/Nature/WolfgangHasselmann.avif';
 import AnnieSpratt from '@/assets/img/imgmenu/Nature/AnnieSpratt.avif'
 import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
+import info from '@/assets/img/imgmenu/Travel/info.avif';
+
 </script>
 
 <template>
@@ -78,10 +80,12 @@ import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
     </div>
 
     <!-- Cột bên phải -->
-    <div class="border-1 border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px]">
-      <div class="flex mt-[220px] ml-[15px]">
+    <a href="https://unsplash.com/photos/two-white-dogs-sitting-on-top-of-a-lush-green-field-BS3q_qapyQ0">
+      <div
+        class="border border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px] overflow-hidden flex items-center justify-center">
+        <img :src="info" alt="info" class="w-full h-full object-cover transition duration-300 hover:brightness-75">
       </div>
-    </div>
+    </a>
   </div>
 
   <!-- hiển thị ảnh -->

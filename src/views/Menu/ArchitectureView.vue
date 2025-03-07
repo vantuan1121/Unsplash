@@ -4,6 +4,8 @@ import MarekPiwnicki from '@/assets/img/imgmenu/Nature/MarekPiwnicki.avif';
 import WolfgangHasselmann from '@/assets/img/imgmenu/Nature/WolfgangHasselmann.avif';
 import AnnieSpratt from '@/assets/img/imgmenu/Nature/AnnieSpratt.avif'
 import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
+import info from '@/assets/img/imgmenu/Architecture_Interiors/info.avif';
+
 </script>
 
 <template>
@@ -31,7 +33,7 @@ import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
       </div>
 
       <!-- Tác giả nổi bật -->
-     <div class="space-y-5 mt-[10px] ml-[27px] text-[15px]  ">
+      <div class="space-y-5 mt-[10px] ml-[27px] text-[15px]  ">
         <!--  -->
         <a href="https://unsplash.com/@marekpiwnicki" target="_blank" class="block">
           <div class="flex w-[270px] -ml-2 border-0 rounded-md hover:bg-gray-100 transition">
@@ -78,10 +80,12 @@ import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
     </div>
 
     <!-- Cột bên phải -->
-    <div class="border-1 border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px]">
-      <div class="flex mt-[220px] ml-[15px]">
+    <a href="https://unsplash.com/photos/two-white-dogs-sitting-on-top-of-a-lush-green-field-BS3q_qapyQ0">
+      <div
+        class="border border-[#C0C0C0] rounded-md h-[280px] w-[300px] mt-[50px] overflow-hidden flex items-center justify-center">
+        <img :src="info" alt="info" class="w-full h-full object-cover transition duration-300 hover:brightness-75">
       </div>
-    </div>
+    </a>
   </div>
 
   <!-- hiển thị ảnh -->
@@ -96,13 +100,14 @@ import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
               class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
 
             <!-- Nền đen mờ khi hover -->
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg">
+            </div>
           </div>
 
           <!-- Thông tin tác giả -->
-          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-            <img :src="image.user.profile_image.medium" alt="Avatar"
-              class="w-8 h-8 rounded-full border border-white" />
+          <div
+            class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar" class="w-8 h-8 rounded-full border border-white" />
             <div>
               <p class="text-sm font-semibold">{{ image.user.name }}</p>
               <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
@@ -119,11 +124,12 @@ import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
           <div class="relative">
             <img :src="image.urls.small" :alt="image.alt_description"
               class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg">
+            </div>
           </div>
-          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-            <img :src="image.user.profile_image.medium" alt="Avatar"
-              class="w-8 h-8 rounded-full border border-white" />
+          <div
+            class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar" class="w-8 h-8 rounded-full border border-white" />
             <div>
               <p class="text-sm font-semibold">{{ image.user.name }}</p>
               <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
@@ -140,11 +146,12 @@ import FrancescoUngaro from '@/assets/img/imgmenu/Nature/FrancescoUngaro.avif';
           <div class="relative">
             <img :src="image.urls.small" :alt="image.alt_description"
               class="rounded-lg shadow-md transition-all duration-300" loading="lazy" />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg"></div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 rounded-lg">
+            </div>
           </div>
-          <div class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-            <img :src="image.user.profile_image.medium" alt="Avatar"
-              class="w-8 h-8 rounded-full border border-white" />
+          <div
+            class="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <img :src="image.user.profile_image.medium" alt="Avatar" class="w-8 h-8 rounded-full border border-white" />
             <div>
               <p class="text-sm font-semibold">{{ image.user.name }}</p>
               <p v-if="image.user.for_hire" class="text-xs text-gray-300">Available for hire ✅</p>
